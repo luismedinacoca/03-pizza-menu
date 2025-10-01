@@ -1,13 +1,13 @@
-import Pizza from "./components/pizza";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Menu from "./components/Menu";
 function App() {
   const x = "Luiggie";
   return (
     <>
-      <h1>Hello React!!!</h1>
-      <p>Hello here from this paragraph</p>
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Header />
+      <Menu />
+      <Footer />
     </>
   );
 }
