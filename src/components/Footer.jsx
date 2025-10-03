@@ -12,7 +12,9 @@ const Footer = () => {
   console.log(hour);
   console.log(isOpen);
   return (
-    <footer>{new Date().toLocaleTimeString()} We're currently open!</footer>
+    <footer className="footer">
+      {new Date().toLocaleTimeString()} We're currently open!
+    </footer>
   );
 };
 

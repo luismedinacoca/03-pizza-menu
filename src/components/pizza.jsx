@@ -49,7 +49,7 @@ const Pizza = () => {
   return (
     <div>
       <img src="pizzas/salamino.jpg" alt="Pizza Salamino" />
-      <h2>Pizza Salamino</h2>
+      <h3>Pizza Salamino</h3>
       <p>Tomato, mozarella, and pepperoni</p>
     </div>
   );
