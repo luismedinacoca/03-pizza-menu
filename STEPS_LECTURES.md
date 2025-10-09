@@ -515,4 +515,78 @@ const Menu = () => {
 export default Menu;
 ```
 
+## Lecture 0️⃣4️⃣8️⃣: Conditional Rendering With Ternaries
+
+### 1. Updating to ternary operator in **`Menu.jsx`** component:
+```jsx
+import Pizza from "./pizza";
+const Menu = () => {
+  //const pizzas = pizzaData;
+  const pizzas = [];
+  const numPizzas = pizzas.length;
+  return (
+    <main className="menu">
+      <h2>Our Menu</h2>
+      {numPizzas > 0 ? (
+        <ul className="pizzas">
+          {pizzaData.map((pizza) => (
+            <Pizza pizzaObj={pizza} key={pizza.name} />
+          ))}
+        </ul>
+      ) : null}
+    </main>
+  );
+};
+export default Menu;
+```
+> Customizing a html code instead of null:
+```jsx
+import Pizza from "./pizza";
+const Menu = () => {
+  //const pizzas = pizzaData;
+  const pizzas = [];
+  const numPizzas = pizzas.length;
+  return (
+    <main className="menu">
+      <h2>Our Menu</h2>
+      {numPizzas > 0 ? (
+        <ul className="pizzas">
+          {pizzaData.map((pizza) => (
+            <Pizza pizzaObj={pizza} key={pizza.name} />
+          ))}
+        </ul>
+      ) : <p>🚧 We're still working on our menu. PLease come back later 😁</p>}
+    </main>
+  );
+};
+export default Menu;
+```
+
+### 2. In **`Footer`** component:
+```jsx
+const Footer = () => {
+  const hour = new Date().getHours();
+  const openHour = 12;
+  const closeHour = 22;
+  const isOpen = hour >= openHour && hour <= closeHour;
+  console.log(hour);
+  console.log(isOpen);
+  return (
+    <footer className="footer">
+      {isOpen ? (
+        <div className="order">
+          <p>
+            We're open untill {closeHour}:00. Come visit us or order online.
+          </p>
+          <button className="btn">Order</button>
+        </div>
+      ) : (
+        <p>We're happy to welcome you between {openHour}:00 and {closeHour}:00.</p>
+      )}
+    </footer>
+  );
+};
+export default Footer;
+```
+
 
