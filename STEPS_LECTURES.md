@@ -12,8 +12,8 @@
 │   └── main.jsx                  # Application entry point
 ├── eslint.config.js              # ESLint configuration
 ├── package.json                  # Project dependencies and scripts
-├── vite.config.js               # Vite configuration
-└── README.md                    # This file
+├── vite.config.js                # Vite configuration
+└── README.md                     # This file
 ```
 
 1. **`main.jsx`** file:
@@ -192,9 +192,128 @@ const Footer = () => {
 
 ## Lecture 0️⃣4️⃣0️⃣: Separation of Concerns
 
+<img src="./img/section05-lecture040-001-Concerns.png" >
+<img src="./img/section05-lecture040-002-Concerns.png" >
+<img src="./img/section05-lecture040-003-Concerns.png" >
 
 
+## Lecture 0️⃣4️⃣1️⃣: Styling React Applications
 
+### Styling:
+```jsx
+const Header = () => {
+  return (
+    <h1 
+      style={{ color: "red", fontSize: "48px", textTransform: "uppercase" }}
+    >
+      Fast React Pizza Co.
+    </h1>
+  )
+};
+```
+or
+```jsx
+const Header = () => {
+  const style = {color: "red", fontSize: "48px", textTransform: "uppercase"}
+  return (
+    <h1 style={style}>
+      Fast React Pizza Co.
+    </h1>
+  )
+};
+```
+or finally
+```jsx
+import './index.css'; // 👈🏽
+const Header = () => {
+  return (
+    <header className="header">
+      <h1>Fast React Pizza Co.</h1>
+    </header>
+  )
+};
+```
+
+### Warning:
+```jsx
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Menu from "./components/Menu";
+import "./index.css";
+function App() {
+  return (
+    <div class="container">. {/* 👈🏽 */}
+      <Header />
+      <Menu />
+      <Footer />
+    </div>
+  );
+}
+export default App;
+```
+<img src="./img/section05-lecture041-001.png">
+
+## Lecture 0️⃣4️⃣2️⃣: Passing and Receiving Props
+
+### In **`Menu.jsx`**, father component:
+```jsx
+import Pizza from "./pizza";
+const Menu = () => {
+  return (
+    <main className="menu">
+      <h2>Our Menu</h2>
+      <Pizza
+        name="Pizza Margherita"
+        ingredients="Tomato and mozarella"
+        photoName="pizzas/margherita.jpg"
+        price={10}
+      />
+      <Pizza
+        name="Pizza Funghi"
+        ingredients="Tomato, mozarella, mushrooms, and onion"
+        photoName="pizzas/funghi.jpg"
+        price={12}
+      />
+      <Pizza
+        name="Pizza Spinaci"
+        price={12}
+        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+        photoName="pizzas/spinaci.jpg"
+      />
+    </main>
+  );
+};
+export default Menu;
+```
+
+### Meanwhile in **`Pizza.jsx`**, child component:
+```jsx
+const Pizza = (props) => {
+  console.log(props);
+  return (
+    <div className="pizza">
+      <img src={props.photoName} alt={props.name} />
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{props.price + 3}</span>
+      </div>
+    </div>
+  );
+};
+export default Pizza;
+```
+
+<img src="./img/section05-lecture042-001.png">
+
+
+## Lecture 0️⃣4️⃣3️⃣: Props, Immutability, and One-Way Data Flow
+
+<img src="./img/section05-lecture043-001.png">
+<img src="./img/section05-lecture043-002.png">
+<img src="./img/section05-lecture043-003.png">
+<img src="./img/section05-lecture043-004.png">
+<img src="./img/section05-lecture043-005.png">
 
 
 
